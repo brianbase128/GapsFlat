@@ -24,7 +24,7 @@ public class TestRanges {
     public void testSubtractAll() {
         Ranges ranges = new Ranges(10.0, 100.0);
         Interval interval = new Interval(9.0, 110.0);
-        ranges.subtract(interval);
+        ranges.remove(interval);
         assertThat(ranges.sum(), closeTo(0.0, precision));
         assertThat (ranges.iterator().hasNext(), is(false));
     }
