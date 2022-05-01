@@ -44,8 +44,8 @@ public class TestRanges {
         Ranges ranges = new Ranges(10.0, 100.0);
         Interval interval = new Interval(20.0, 90.0);
         ranges.remove(interval);
-        assertThat(ranges.sum(), closeTo(10.0, precision));
-        Interval[] expected = { new Interval(10.0, 20.0) };
+        assertThat(ranges.sum(), closeTo(20.0, precision));
+        Interval[] expected = { new Interval(10.0, 20.0), new Interval(90.0, 100.0) };
         assertThat (ranges, contains(expected));
     }
 
@@ -72,10 +72,10 @@ public class TestRanges {
     @Test
     public void testSubtractEmpty() {
         Ranges ranges = new Ranges(10.0, 100.0);
-        Interval interval = new Interval(51.0, 50.0);
+        Interval interval = new Interval(50.0, 50.0);
         ranges.remove(interval);
         assertThat(ranges.sum(), closeTo(90.0, precision));
-        Interval[] expected = { new Interval(10.0, 100.0)};
+        Interval[] expected = { new Interval(10.0, 50.0), new Interval(50.0, 100.0)};
         assertThat (ranges, contains(expected));
     }
 
